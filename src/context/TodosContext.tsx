@@ -19,6 +19,14 @@ const defaultTodos = [
     isPriority: false,
     isCompleted: false,
   },
+  {
+    id: uuidv4(),
+    date: new Date(),
+    type: TodoType.Task,
+    description: "This is a prioritized task",
+    isPriority: true,
+    isCompleted: false,
+  },
 ];
 
 export const TodosContext = createContext<{

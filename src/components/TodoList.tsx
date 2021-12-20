@@ -10,7 +10,7 @@ export const TodoList = () => {
 
   return state.length ? (
     <Paper>
-      <List>
+      <List style={{ padding: "0" }}>
         {state.map((todo, i) => (
           <React.Fragment key={i}>
             <Todo {...todo} key={todo.id} />
