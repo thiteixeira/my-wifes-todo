@@ -2,12 +2,12 @@ import { createContext, useReducer } from "react";
 import { v4 as uuidv4 } from "uuid";
 import todosReducer from "../reducers/TodosReducer";
 
-enum TodoType {
-  Birthday = "BIRTHDAY",
-  Task = "TASK",
-  Reminder = "REMINDER",
-  Financial = "FINANCIAL",
-  Other = "OTHER",
+export enum TodoType {
+  Birthday = "CakeOutlinedIcon",
+  Task = "TaskOutlined",
+  Reminder = "AlarmOutlinedIcon",
+  Financial = "AccountBalanceOutlinedIcon",
+  Other = "AnnouncementOutlinedIcon",
 }
 
 const defaultTodos = [

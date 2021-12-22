@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
+import { TodoType } from "../context/TodosContext";
 
 const todosReducer = (state, action) => {
-  console.log(state);
   switch (action.type) {
     case "ADD":
       return [
@@ -12,7 +12,7 @@ const todosReducer = (state, action) => {
           description: action.payload.description,
           isCompleted: false,
           isPriority: false,
-          type: "TASK",
+          type: TodoType.Task,
         },
       ];
     case "REMOVE":

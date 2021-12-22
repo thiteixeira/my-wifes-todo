@@ -21,7 +21,10 @@ export const EditTodoForm = ({
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        dispatch({ type: "EDIT", payload: { id: id, newDescription: value } });
+        dispatch({
+          type: "EDIT",
+          payload: { id: id, newDescription: value },
+        });
         reset();
         toggleEditForm();
       }}

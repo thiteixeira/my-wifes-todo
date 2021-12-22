@@ -10,7 +10,10 @@ export const TodoForm = (): JSX.Element => {
 
   const handleSubmit = (evt: any) => {
     evt.preventDefault();
-    dispatch({ type: "ADD", payload: { description: value } });
+    dispatch({
+      type: "ADD",
+      payload: { description: value },
+    });
     reset();
   };
 

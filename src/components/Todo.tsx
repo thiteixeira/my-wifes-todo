@@ -9,6 +9,7 @@ import Delete from "@mui/icons-material/Delete";
 import Edit from "@mui/icons-material/Edit";
 import { EditTodoForm } from "./EditTodoForm";
 import { ConfirmDialog } from "./ConfirmationDialog";
+import { IconRenderer } from "./IconRenderer";
 import { TodosContext } from "../context/TodosContext";
 import { useToggle } from "../hooks/useToggleState";
 
@@ -40,6 +41,7 @@ export const Todo = memo(
           />
         ) : (
           <React.Fragment>
+            <IconRenderer taskType={type} />
             <ListItemText
               style={{ textDecoration: isCompleted ? "line-through" : "none" }}
             >
