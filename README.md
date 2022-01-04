@@ -8,7 +8,7 @@ anything that you can imagine.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) with Typescript. I am making use of the Hooks, Context, and Reducer
 APIs, as well as Material UI.
 
-I am planning to make this app fullstack so data can persist. Until then, feel free to play around with it.
+The app is hosted at https://mywifestodo.web.app/
 
 ## Anatomy of a Todo
 
