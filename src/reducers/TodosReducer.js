@@ -9,8 +9,8 @@ const todosReducer = (state, action) => {
           date: new Date(),
           id: uuidv4(),
           description: action.payload.description,
-          isCompleted: false,
-          isPriority: false,
+          isCompleted: action.payload.isCompleted,
+          isPriority: action.payload.isPriority,
           type: action.payload.task,
         },
       ];
