@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from "uuid";
-import { TodoType } from "../context/TodosContext";
 
 const todosReducer = (state, action) => {
   switch (action.type) {
@@ -12,7 +11,7 @@ const todosReducer = (state, action) => {
           description: action.payload.description,
           isCompleted: false,
           isPriority: false,
-          type: TodoType.Task,
+          type: action.payload.task,
         },
       ];
     case "REMOVE":

@@ -3,7 +3,9 @@ import { v4 as uuidv4 } from "uuid";
 import todosReducer from "../reducers/TodosReducer";
 
 export enum TodoType {
+  Anniversary = "DateRangeOutlinedIcon",
   Birthday = "CakeOutlinedIcon",
+  Deadline = "HourglassBottomOutlinedIcon",
   Task = "TaskOutlined",
   Reminder = "AlarmOutlinedIcon",
   Financial = "AccountBalanceOutlinedIcon",
