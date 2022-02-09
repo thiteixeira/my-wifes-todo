@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { TodosContext } from "../context/TodosContext";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
@@ -18,24 +17,44 @@ import HourglassBottomOutlinedIcon from "@mui/icons-material/HourglassBottomOutl
 import DateRangeOutlinedIcon from "@mui/icons-material/DateRangeOutlined";
 import { useInputState } from "../hooks/useInputState";
 import { useToggle } from "../hooks/useToggleState";
-import { TodoType } from "../context/TodosContext";
+import { TodoType, TodosContext } from "../context/TodosContext";
+
+const OPTIONS = [
+  {
+    component: <TaskOutlinedIcon />,
+    description: "Task (default)",
+  },
+  {
+    component: <DateRangeOutlinedIcon />,
+    description: "Anniversary",
+  },
+  {
+    component: <CakeOutlinedIcon />,
+    description: "Birthday",
+  },
+  {
+    component: <HourglassBottomOutlinedIcon />,
+    description: "Deadline",
+  },
+  {
+    component: <AccountBalanceOutlinedIcon />,
+    description: "Financial",
+  },
+  {
+    component: <AnnouncementOutlinedIcon />,
+    description: "Other",
+  },
+  {
+    component: <AlarmOutlinedIcon />,
+    description: "Reminder",
+  },
+];
 
 export const TodoForm = (): JSX.Element => {
   const { dispatch } = useContext(TodosContext);
   const [inputValue, handleInputChange, reset] = useInputState("");
   const [taskType, setTaskType] = useState(TodoType.Task);
   const [isPrioritized, togglePrioritized] = useToggle(false);
-
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-
-  const handleClick = (evt: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(evt.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   const handleSubmit = (evt: any) => {
     evt.preventDefault();
@@ -64,49 +83,15 @@ export const TodoForm = (): JSX.Element => {
           />
           <Select>
             <MenuList>
-              <MenuItem>
-                <ListItemIcon>
-                  <TaskOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText>Task (default)</ListItemText>
-              </MenuItem>
-              <Divider />
-              <MenuItem>
-                <ListItemIcon>
-                  <DateRangeOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText>Anniversary</ListItemText>
-              </MenuItem>
-              <MenuItem>
-                <ListItemIcon>
-                  <CakeOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText>Birthday</ListItemText>
-              </MenuItem>
-              <MenuItem>
-                <ListItemIcon>
-                  <HourglassBottomOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText>Deadline</ListItemText>
-              </MenuItem>
-              <MenuItem>
-                <ListItemIcon>
-                  <AccountBalanceOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText>Financial</ListItemText>
-              </MenuItem>
-              <MenuItem>
-                <ListItemIcon>
-                  <AnnouncementOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText>Other</ListItemText>
-              </MenuItem>
-              <MenuItem>
-                <ListItemIcon>
-                  <AlarmOutlinedIcon />
-                </ListItemIcon>
-                <ListItemText>Reminder</ListItemText>
-              </MenuItem>
+              {OPTIONS.map((option, idx) => (
+                <>
+                  <MenuItem>
+                    <ListItemIcon>{option.component}</ListItemIcon>
+                    <ListItemText>{option.description}</ListItemText>
+                  </MenuItem>
+                  {idx === 0 && <Divider />}
+                </>
+              ))}
             </MenuList>
           </Select>
         </FormControl>

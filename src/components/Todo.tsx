@@ -2,6 +2,8 @@ import React, { useContext, useState, memo } from "react";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
+import StarBorderOutlinedIcon from "@mui/icons-material/StarBorderOutlined";
+import StarOutlinedIcon from "@mui/icons-material/StarOutlined";
 import Checkbox from "@mui/material/Checkbox";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -30,7 +32,6 @@ export const Todo = memo(
       <ListItem
         style={{
           minHeight: "4rem",
-          borderLeft: isPriority ? "4px solid #d32f2f" : "none",
         }}
       >
         {isEditing ? (
@@ -48,6 +49,13 @@ export const Todo = memo(
               {description}
             </ListItemText>
             <ListItemSecondaryAction>
+              <IconButton
+                color="primary"
+                aria-label="favorite"
+                onClick={() => {}} // TODO
+              >
+                {isPriority ? <StarOutlinedIcon /> : <StarBorderOutlinedIcon />}
+              </IconButton>
               <Checkbox
                 tabIndex={-1}
                 checked={isCompleted}
