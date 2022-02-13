@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from "uuid";
-import { TodoType } from "../context/TodosContext";
 
 const todosReducer = (state, action) => {
   switch (action.type) {
@@ -10,9 +9,9 @@ const todosReducer = (state, action) => {
           date: new Date(),
           id: uuidv4(),
           description: action.payload.description,
-          isCompleted: false,
-          isPriority: false,
-          type: TodoType.Task,
+          isCompleted: action.payload.isCompleted,
+          isPriority: action.payload.isPriority,
+          type: action.payload.task,
         },
       ];
     case "REMOVE":
@@ -21,6 +20,12 @@ const todosReducer = (state, action) => {
       return state.map((todo) =>
         todo.id === action.payload.id
           ? { ...todo, isCompleted: !todo.isCompleted }
+          : todo
+      );
+    case "FAVORITE":
+      return state.map((todo) =>
+        todo.id === action.payload.id
+          ? { ...todo, isPriority: !todo.isPriority }
           : todo
       );
     case "EDIT":

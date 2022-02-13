@@ -3,11 +3,13 @@ import { v4 as uuidv4 } from "uuid";
 import todosReducer from "../reducers/TodosReducer";
 
 export enum TodoType {
-  Birthday = "CakeOutlinedIcon",
+  Anniversary = "DateRangeOutlined",
+  Birthday = "CakeOutlined",
+  Deadline = "HourglassBottomOutlined",
   Task = "TaskOutlined",
-  Reminder = "AlarmOutlinedIcon",
-  Financial = "AccountBalanceOutlinedIcon",
-  Other = "AnnouncementOutlinedIcon",
+  Reminder = "AlarmOutlined",
+  Financial = "AccountBalanceOutlined",
+  Other = "AnnouncementOutlined",
 }
 
 const defaultTodos = [
