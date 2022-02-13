@@ -22,6 +22,12 @@ const todosReducer = (state, action) => {
           ? { ...todo, isCompleted: !todo.isCompleted }
           : todo
       );
+    case "FAVORITE":
+      return state.map((todo) =>
+        todo.id === action.payload.id
+          ? { ...todo, isPriority: !todo.isPriority }
+          : todo
+      );
     case "EDIT":
       return state.map((todo) =>
         todo.id === action.payload.id

@@ -1,11 +1,9 @@
 import { useContext, useState } from "react";
 import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
 import IconButton from "@mui/material/IconButton";
-import Divider from "@mui/material/Divider";
-import Select from "@mui/material/Select";
-import MenuList from "@mui/material/MenuList";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -27,7 +25,7 @@ const OPTIONS = [
   {
     component: <TaskOutlinedIcon />,
     key: TodoType.Task,
-    description: "Task (default)",
+    description: "Task",
   },
   {
     component: <DateRangeOutlinedIcon />,
@@ -80,45 +78,76 @@ export const TodoForm = (): JSX.Element => {
     reset();
   };
 
+  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    setTaskType(evt.target.value as TodoType);
+  };
+
   return (
     <Paper style={{ margin: "1rem 0" }}>
       <FormControl fullWidth>
-        <TextField
-          required
-          id="todo-input"
-          value={inputValue}
-          onChange={handleInputChange}
-          label="Add new entry"
-          fullWidth
-        />
-        <Select>
-          <MenuList>
-            {OPTIONS.map((option, idx) => (
-              <>
-                <MenuItem onClick={() => setTaskType(option.key)}>
-                  <ListItemIcon>{option.component}</ListItemIcon>
-                  <ListItemText>{option.description}</ListItemText>
+        <Grid container spacing={1}>
+          <Grid item xs={8}>
+            <TextField
+              required
+              id="todo-input"
+              value={inputValue}
+              onChange={handleInputChange}
+              label="Add new entry"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={3}>
+            <TextField
+              id="task-type-selector"
+              select
+              label="Select Task Type"
+              value={taskType}
+              onChange={handleChange}
+              fullWidth
+              style={{ display: "flex", flexDirection: "row" }}
+            >
+              {OPTIONS.map((option, idx) => (
+                <MenuItem
+                  key={option.key}
+                  value={option.key}
+                  divider={idx === 0 ? true : false}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      height: "1.33rem",
+                    }}
+                  >
+                    <ListItemIcon>{option.component}</ListItemIcon>
+                    <ListItemText>{option.description}</ListItemText>
+                  </div>
                 </MenuItem>
-                {idx === 0 && <Divider />}
-              </>
-            ))}
-          </MenuList>
-        </Select>
-        <IconButton
-          color="primary"
-          aria-label="favorite"
-          onClick={togglePrioritized}
-        >
-          {isPrioritized ? <StarOutlinedIcon /> : <StarBorderOutlinedIcon />}
-        </IconButton>
-        <IconButton
-          color="primary"
-          sx={{ p: "10px" }}
-          aria-label="add new entry"
-          onClick={handleSubmit}
-        >
-          <AddOutlinedIcon />
-        </IconButton>
+              ))}
+            </TextField>
+          </Grid>
+          <Grid item xs={1} style={{ display: "flex", flexDirection: "row" }}>
+            <IconButton
+              color="primary"
+              aria-label="favorite"
+              onClick={togglePrioritized}
+            >
+              {isPrioritized ? (
+                <StarOutlinedIcon />
+              ) : (
+                <StarBorderOutlinedIcon />
+              )}
+            </IconButton>
+            <IconButton
+              color="primary"
+              sx={{ p: "10px" }}
+              aria-label="add new entry"
+              onClick={handleSubmit}
+            >
+              <AddOutlinedIcon />
+            </IconButton>
+          </Grid>
+        </Grid>
       </FormControl>
     </Paper>
   );

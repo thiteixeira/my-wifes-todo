@@ -52,7 +52,9 @@ export const Todo = memo(
               <IconButton
                 color="primary"
                 aria-label="favorite"
-                onClick={() => {}} // TODO
+                onClick={() =>
+                  dispatch({ type: "FAVORITE", payload: { id: id } })
+                }
               >
                 {isPriority ? <StarOutlinedIcon /> : <StarBorderOutlinedIcon />}
               </IconButton>
