@@ -6,7 +6,7 @@ const todosReducer = (state, action) => {
       return [
         ...state,
         {
-          date: new Date(),
+          date: action.payload.date,
           id: uuidv4(),
           description: action.payload.description,
           isCompleted: action.payload.isCompleted,
