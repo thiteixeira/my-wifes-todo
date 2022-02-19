@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { format } from "date-fns";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
@@ -70,9 +71,11 @@ export const TodoForm = (): JSX.Element => {
     dispatch({
       type: "ADD",
       payload: {
+        date: format(new Date(), "yyyy-MM-dd"),
         description: inputValue,
         task: taskType,
         isPriority: isPrioritized,
+        isCompleted: false,
       },
     });
     reset();

@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+import { format } from "date-fns";
 import { v4 as uuidv4 } from "uuid";
 import todosReducer from "../reducers/TodosReducer";
 
@@ -15,7 +16,7 @@ export enum TodoType {
 const defaultTodos = [
   {
     id: uuidv4(),
-    date: new Date(),
+    date: format(new Date(), "yyyy-MM-dd"),
     type: TodoType.Task,
     description: "This is a sample task",
     isPriority: false,
@@ -23,7 +24,7 @@ const defaultTodos = [
   },
   {
     id: uuidv4(),
-    date: new Date(),
+    date: format(new Date(), "yyyy-MM-dd"),
     type: TodoType.Task,
     description: "This is a prioritized task",
     isPriority: true,
