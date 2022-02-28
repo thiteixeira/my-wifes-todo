@@ -1,4 +1,4 @@
-import * as icons from "@mui/icons-material";
+import * as icons from '@mui/icons-material';
 
 export type IconNames = keyof typeof icons;
 
@@ -8,5 +8,5 @@ interface IIconRendererProps {
 
 export const IconRenderer = ({ taskType }: IIconRendererProps): JSX.Element => {
   const Icon = icons[taskType];
-  return <Icon style={{ marginRight: "1rem" }} />;
+  return <Icon style={{ marginRight: '1rem' }} />;
 };

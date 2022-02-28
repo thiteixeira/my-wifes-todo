@@ -1,8 +1,8 @@
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogActions from "@mui/material/DialogActions";
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
 
 interface IDialogProps {
   children: JSX.Element | string;
@@ -23,25 +23,25 @@ export const ConfirmDialog = ({
     <Dialog
       open={isOpen}
       onClose={() => setOpen(false)}
-      aria-labelledby="confirm-dialog"
+      aria-labelledby='confirm-dialog'
     >
-      <DialogTitle id="confirm-dialog">{title}</DialogTitle>
+      <DialogTitle id='confirm-dialog'>{title}</DialogTitle>
       <DialogContent>{children}</DialogContent>
       <DialogActions>
         <Button
-          variant="outlined"
+          variant='outlined'
           onClick={() => setOpen(false)}
           // color="secondary"
         >
           Cancel
         </Button>
         <Button
-          variant="contained"
+          variant='contained'
           onClick={() => {
             setOpen(false);
             onConfirm();
           }}
-          color="error"
+          color='error'
         >
           Delete
         </Button>

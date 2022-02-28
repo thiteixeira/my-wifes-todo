@@ -1,32 +1,32 @@
-import { createContext, useReducer } from "react";
-import { format } from "date-fns";
-import { v4 as uuidv4 } from "uuid";
-import todosReducer from "../reducers/TodosReducer";
+import { createContext, useReducer } from 'react';
+import { format } from 'date-fns';
+import { v4 as uuidv4 } from 'uuid';
+import todosReducer from '../reducers/TodosReducer';
 
 export enum TodoType {
-  Anniversary = "DateRangeOutlined",
-  Birthday = "CakeOutlined",
-  Deadline = "HourglassBottomOutlined",
-  Task = "TaskOutlined",
-  Reminder = "AlarmOutlined",
-  Financial = "AccountBalanceOutlined",
-  Other = "AnnouncementOutlined",
+  Anniversary = 'DateRangeOutlined',
+  Birthday = 'CakeOutlined',
+  Deadline = 'HourglassBottomOutlined',
+  Task = 'TaskOutlined',
+  Reminder = 'AlarmOutlined',
+  Financial = 'AccountBalanceOutlined',
+  Other = 'AnnouncementOutlined',
 }
 
 const defaultTodos = [
   {
     id: uuidv4(),
-    date: format(new Date(), "yyyy-MM-dd"),
+    date: format(new Date(), 'yyyy-MM-dd'),
     type: TodoType.Task,
-    description: "This is a sample task",
+    description: 'This is a sample task',
     isPriority: false,
     isCompleted: false,
   },
   {
     id: uuidv4(),
-    date: format(new Date(), "yyyy-MM-dd"),
+    date: format(new Date(), 'yyyy-MM-dd'),
     type: TodoType.Task,
-    description: "This is a prioritized task",
+    description: 'This is a prioritized task',
     isPriority: true,
     isCompleted: false,
   },

@@ -1,8 +1,8 @@
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from 'uuid';
 
 const todosReducer = (state, action) => {
   switch (action.type) {
-    case "ADD":
+    case 'ADD':
       return [
         ...state,
         {
@@ -14,21 +14,21 @@ const todosReducer = (state, action) => {
           type: action.payload.task,
         },
       ];
-    case "REMOVE":
+    case 'REMOVE':
       return state.filter((todo) => todo.id !== action.payload.id);
-    case "TOGGLE":
+    case 'TOGGLE':
       return state.map((todo) =>
         todo.id === action.payload.id
           ? { ...todo, isCompleted: !todo.isCompleted }
           : todo
       );
-    case "FAVORITE":
+    case 'FAVORITE':
       return state.map((todo) =>
         todo.id === action.payload.id
           ? { ...todo, isPriority: !todo.isPriority }
           : todo
       );
-    case "EDIT":
+    case 'EDIT':
       return state.map((todo) =>
         todo.id === action.payload.id
           ? { ...todo, description: action.payload.newDescription }
