@@ -1,5 +1,7 @@
 import TodoApp from './TodoApp';
 
-const App = () => <TodoApp />;
+function App() {
+  return <TodoApp />;
+}
 
 export default App;

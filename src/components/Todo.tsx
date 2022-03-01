@@ -41,7 +41,7 @@ export const Todo = memo(
             toggleEditForm={toggleEditing}
           />
         ) : (
-          <React.Fragment>
+          <>
             <IconRenderer taskType={type} />
             <ListItemText
               style={{ textDecoration: isCompleted ? 'line-through' : 'none' }}
@@ -50,31 +50,27 @@ export const Todo = memo(
             </ListItemText>
             <ListItemSecondaryAction>
               <IconButton
-                color='primary'
-                aria-label='favorite'
-                onClick={() =>
-                  dispatch({ type: 'FAVORITE', payload: { id: id } })
-                }
+                color="primary"
+                aria-label="favorite"
+                onClick={() => dispatch({ type: 'FAVORITE', payload: { id } })}
               >
                 {isPriority ? <StarOutlinedIcon /> : <StarBorderOutlinedIcon />}
               </IconButton>
               <Checkbox
                 tabIndex={-1}
                 checked={isCompleted}
-                onClick={() =>
-                  dispatch({ type: 'TOGGLE', payload: { id: id } })
-                }
+                onClick={() => dispatch({ type: 'TOGGLE', payload: { id } })}
               />
               <IconButton
-                color='primary'
-                aria-label='Edit'
+                color="primary"
+                aria-label="Edit"
                 onClick={toggleEditing}
               >
                 <Edit />
               </IconButton>
               <IconButton
-                color='error'
-                aria-label='Delete'
+                color="error"
+                aria-label="Delete"
                 onClick={() => {
                   setIsOpen(true);
                 }}
@@ -82,19 +78,19 @@ export const Todo = memo(
                 <Delete />
               </IconButton>
               <ConfirmDialog
-                title={'Are you sure you want to delete this item?'}
+                title="Are you sure you want to delete this item?"
                 isOpen={isOpen}
                 setOpen={setIsOpen}
                 onConfirm={() => {
-                  dispatch({ type: 'REMOVE', payload: { id: id } });
+                  dispatch({ type: 'REMOVE', payload: { id } });
                 }}
               >
                 <Typography>There is no turning back</Typography>
               </ConfirmDialog>
             </ListItemSecondaryAction>
-          </React.Fragment>
+          </>
         )}
       </ListItem>
     );
-  }
+  },
 );

@@ -6,7 +6,7 @@ interface IIconRendererProps {
   taskType: IconNames;
 }
 
-export const IconRenderer = ({ taskType }: IIconRendererProps): JSX.Element => {
+export function IconRenderer({ taskType }: IIconRendererProps): JSX.Element {
   const Icon = icons[taskType];
   return <Icon style={{ marginRight: '1rem' }} />;
-};
+}

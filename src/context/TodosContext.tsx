@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useMemo } from 'react';
 import { format } from 'date-fns';
 import { v4 as uuidv4 } from 'uuid';
 import todosReducer from '../reducers/TodosReducer';
@@ -34,18 +34,24 @@ const defaultTodos = [
 
 export const TodosContext = createContext<{
   state: ITodo[];
-  dispatch: (action: Action) => void;
-}>({
-  state: defaultTodos,
-  dispatch: () => {},
-});
+  dispatch:(action: Action) => void;
+    }>({
+      state: defaultTodos,
+      dispatch: () => {},
+    });
 
-export const TodosProvider = (props: any) => {
+export function TodosProvider({ children }: any) {
   const [state, dispatch] = useReducer(todosReducer, defaultTodos);
 
-  return (
-    <TodosContext.Provider value={{ state, dispatch }}>
-      {props.children}
-    </TodosContext.Provider>
+  const value = useMemo(
+    () => ({
+      state,
+      dispatch,
+    }),
+    [state],
   );
-};
+
+  return (
+    <TodosContext.Provider value={value}>{children}</TodosContext.Provider>
+  );
+}

@@ -17,23 +17,17 @@ const todosReducer = (state, action) => {
     case 'REMOVE':
       return state.filter((todo) => todo.id !== action.payload.id);
     case 'TOGGLE':
-      return state.map((todo) =>
-        todo.id === action.payload.id
-          ? { ...todo, isCompleted: !todo.isCompleted }
-          : todo
-      );
+      return state.map((todo) => (todo.id === action.payload.id
+        ? { ...todo, isCompleted: !todo.isCompleted }
+        : todo));
     case 'FAVORITE':
-      return state.map((todo) =>
-        todo.id === action.payload.id
-          ? { ...todo, isPriority: !todo.isPriority }
-          : todo
-      );
+      return state.map((todo) => (todo.id === action.payload.id
+        ? { ...todo, isPriority: !todo.isPriority }
+        : todo));
     case 'EDIT':
-      return state.map((todo) =>
-        todo.id === action.payload.id
-          ? { ...todo, description: action.payload.newDescription }
-          : todo
-      );
+      return state.map((todo) => (todo.id === action.payload.id
+        ? { ...todo, description: action.payload.newDescription }
+        : todo));
     default:
       return state;
   }

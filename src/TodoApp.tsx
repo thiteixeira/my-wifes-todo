@@ -3,9 +3,9 @@ import Typography from '@mui/material/Typography';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Grid from '@mui/material/Grid';
-import { TodosProvider } from './context/TodosContext';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { blueGrey } from '@mui/material/colors';
+import { TodosProvider } from './context/TodosContext';
 import { TodoForm } from './components/TodoForm';
 import { TodoList } from './components/TodoList';
 
@@ -21,13 +21,13 @@ function TodoApp() {
   return (
     <Paper>
       <ThemeProvider theme={customTheme}>
-        <AppBar position='static' style={{ height: '4rem' }}>
+        <AppBar position="static" style={{ height: '4rem' }}>
           <Toolbar>
             <Typography>My Wife's To Do App</Typography>
           </Toolbar>
         </AppBar>
       </ThemeProvider>
-      <Grid container justifyContent='center'>
+      <Grid container justifyContent="center">
         <Grid item xs={11} sm={10} md={9} lg={8} style={{ margin: '1rem 0' }}>
           <TodosProvider>
             <TodoForm />

@@ -60,7 +60,7 @@ const OPTIONS = [
   },
 ];
 
-export const TodoForm = (): JSX.Element => {
+export function TodoForm(): JSX.Element {
   const { dispatch } = useContext(TodosContext);
   const [inputValue, handleInputChange, reset] = useInputState('');
   const [taskType, setTaskType] = useState(TodoType.Task);
@@ -92,18 +92,18 @@ export const TodoForm = (): JSX.Element => {
           <Grid item xs={8}>
             <TextField
               required
-              id='todo-input'
+              id="todo-input"
               value={inputValue}
               onChange={handleInputChange}
-              label='Add new entry'
+              label="Add new entry"
               fullWidth
             />
           </Grid>
           <Grid item xs={3}>
             <TextField
-              id='task-type-selector'
+              id="task-type-selector"
               select
-              label='Select Task Type'
+              label="Select Task Type"
               value={taskType}
               onChange={handleChange}
               fullWidth
@@ -113,7 +113,7 @@ export const TodoForm = (): JSX.Element => {
                 <MenuItem
                   key={option.key}
                   value={option.key}
-                  divider={idx === 0 ? true : false}
+                  divider={idx === 0}
                 >
                   <div
                     style={{
@@ -131,8 +131,8 @@ export const TodoForm = (): JSX.Element => {
           </Grid>
           <Grid item xs={1} style={{ display: 'flex', flexDirection: 'row' }}>
             <IconButton
-              color='primary'
-              aria-label='favorite'
+              color="primary"
+              aria-label="favorite"
               onClick={togglePrioritized}
             >
               {isPrioritized ? (
@@ -142,9 +142,9 @@ export const TodoForm = (): JSX.Element => {
               )}
             </IconButton>
             <IconButton
-              color='primary'
+              color="primary"
               sx={{ p: '10px' }}
-              aria-label='add new entry'
+              aria-label="add new entry"
               onClick={handleSubmit}
             >
               <AddOutlinedIcon />
@@ -154,4 +154,4 @@ export const TodoForm = (): JSX.Element => {
       </FormControl>
     </Paper>
   );
-};
+}
