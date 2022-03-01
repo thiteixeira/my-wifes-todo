@@ -4,20 +4,20 @@ import { v4 as uuidv4 } from 'uuid';
 import todosReducer from '../reducers/TodosReducer';
 
 export enum TodoType {
-  Anniversary = 'DateRangeOutlined',
-  Birthday = 'CakeOutlined',
-  Deadline = 'HourglassBottomOutlined',
-  Task = 'TaskOutlined',
-  Reminder = 'AlarmOutlined',
-  Financial = 'AccountBalanceOutlined',
-  Other = 'AnnouncementOutlined',
+  anniversary = 'DateRangeOutlined',
+  birthday = 'CakeOutlined',
+  deadline = 'HourglassBottomOutlined',
+  task = 'TaskOutlined',
+  reminder = 'AlarmOutlined',
+  financial = 'AccountBalanceOutlined',
+  other = 'AnnouncementOutlined',
 }
 
 const defaultTodos = [
   {
     id: uuidv4(),
     date: format(new Date(), 'yyyy-MM-dd'),
-    type: TodoType.Task,
+    type: TodoType.task,
     description: 'This is a sample task',
     isPriority: false,
     isCompleted: false,
@@ -25,7 +25,7 @@ const defaultTodos = [
   {
     id: uuidv4(),
     date: format(new Date(), 'yyyy-MM-dd'),
-    type: TodoType.Task,
+    type: TodoType.task,
     description: 'This is a prioritized task',
     isPriority: true,
     isCompleted: false,

@@ -28,6 +28,8 @@ export const Todo = memo(
     const [isEditing, toggleEditing] = useToggle(false);
     const [isOpen, setIsOpen] = useState(false);
 
+    console.info(date); // TODO: use date
+
     return (
       <ListItem
         style={{

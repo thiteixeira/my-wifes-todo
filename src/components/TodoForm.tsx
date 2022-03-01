@@ -25,37 +25,37 @@ import { TodoType, TodosContext } from '../context/TodosContext';
 const OPTIONS = [
   {
     component: <TaskOutlinedIcon />,
-    key: TodoType.Task,
+    key: TodoType.task,
     description: 'Task',
   },
   {
     component: <DateRangeOutlinedIcon />,
-    key: TodoType.Anniversary,
+    key: TodoType.anniversary,
     description: 'Anniversary',
   },
   {
     component: <CakeOutlinedIcon />,
-    key: TodoType.Birthday,
+    key: TodoType.birthday,
     description: 'Birthday',
   },
   {
     component: <HourglassBottomOutlinedIcon />,
-    key: TodoType.Deadline,
+    key: TodoType.deadline,
     description: 'Deadline',
   },
   {
     component: <AccountBalanceOutlinedIcon />,
-    key: TodoType.Financial,
+    key: TodoType.financial,
     description: 'Financial',
   },
   {
     component: <AnnouncementOutlinedIcon />,
-    key: TodoType.Other,
+    key: TodoType.other,
     description: 'Other',
   },
   {
     component: <AlarmOutlinedIcon />,
-    key: TodoType.Reminder,
+    key: TodoType.reminder,
     description: 'Reminder',
   },
 ];
@@ -63,7 +63,7 @@ const OPTIONS = [
 export function TodoForm(): JSX.Element {
   const { dispatch } = useContext(TodosContext);
   const [inputValue, handleInputChange, reset] = useInputState('');
-  const [taskType, setTaskType] = useState(TodoType.Task);
+  const [taskType, setTaskType] = useState(TodoType.task);
   const [isPrioritized, togglePrioritized] = useToggle(false);
 
   const handleSubmit = (evt: any) => {
