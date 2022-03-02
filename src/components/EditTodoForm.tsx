@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { TodosContext } from "../context/TodosContext";
-import { useInputState } from "../hooks/useInputState";
-import TextField from "@mui/material/TextField";
+import { useContext } from 'react';
+import TextField from '@mui/material/TextField';
+import { TodosContext } from '../context/TodosContext';
+import { useInputState } from '../hooks/useInputState';
 
 interface IEditFormProps {
   id: string;
@@ -9,11 +9,11 @@ interface IEditFormProps {
   toggleEditForm: any;
 }
 
-export const EditTodoForm = ({
+export function EditTodoForm({
   id,
   description,
   toggleEditForm,
-}: IEditFormProps): JSX.Element => {
+}: IEditFormProps): JSX.Element {
   const { dispatch } = useContext(TodosContext);
   const [value, handleChange, reset] = useInputState(description);
 
@@ -22,16 +22,16 @@ export const EditTodoForm = ({
       onSubmit={(e) => {
         e.preventDefault();
         dispatch({
-          type: "EDIT",
-          payload: { id: id, newDescription: value },
+          type: 'EDIT',
+          payload: { id, newDescription: value },
         });
         reset();
         toggleEditForm();
       }}
-      style={{ marginLeft: "1rem", width: "50%" }}
+      style={{ marginLeft: '1rem', width: '50%' }}
     >
       <TextField
-        margin="normal"
+        margin='normal'
         value={value}
         onChange={handleChange}
         fullWidth
@@ -39,4 +39,4 @@ export const EditTodoForm = ({
       />
     </form>
   );
-};
+}
