@@ -17,12 +17,7 @@ import { useToggle } from '../hooks/useToggleState';
 
 export const Todo = memo(
   ({
-    id,
-    date,
-    type,
-    description,
-    isPriority,
-    isCompleted,
+    id, type, description, isPriority, isCompleted,
   }: ITodo): JSX.Element => {
     const { dispatch } = useContext(TodosContext);
     const [isEditing, toggleEditing] = useToggle(false);
