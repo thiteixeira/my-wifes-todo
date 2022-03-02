@@ -21,13 +21,13 @@ function TodoApp() {
   return (
     <Paper>
       <ThemeProvider theme={customTheme}>
-        <AppBar position="static" style={{ height: '4rem' }}>
+        <AppBar position='static' style={{ height: '4rem' }}>
           <Toolbar>
             <Typography>My Wife's To Do App</Typography>
           </Toolbar>
         </AppBar>
       </ThemeProvider>
-      <Grid container justifyContent="center">
+      <Grid container justifyContent='center'>
         <Grid item xs={11} sm={10} md={9} lg={8} style={{ margin: '1rem 0' }}>
           <TodosProvider>
             <TodoForm />

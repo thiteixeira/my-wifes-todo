@@ -23,25 +23,25 @@ export function ConfirmDialog({
     <Dialog
       open={isOpen}
       onClose={() => setOpen(false)}
-      aria-labelledby="confirm-dialog"
+      aria-labelledby='confirm-dialog'
     >
-      <DialogTitle id="confirm-dialog">{title}</DialogTitle>
+      <DialogTitle id='confirm-dialog'>{title}</DialogTitle>
       <DialogContent>{children}</DialogContent>
       <DialogActions>
         <Button
-          variant="outlined"
+          variant='outlined'
           onClick={() => setOpen(false)}
           // color="secondary"
         >
           Cancel
         </Button>
         <Button
-          variant="contained"
+          variant='contained'
           onClick={() => {
             setOpen(false);
             onConfirm();
           }}
-          color="error"
+          color='error'
         >
           Delete
         </Button>

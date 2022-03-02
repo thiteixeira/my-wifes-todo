@@ -30,7 +30,7 @@
     "lint-fix": "eslint src/ --fix --ext .js,.jsx,.ts,.tsx",
     "lint:staged": "lint-staged",
     "prepare": "husky install",
-    "format": "prettier --write"
+    "format": "prettier --write ./src"
   },
   "eslintConfig": {
     "extends": [

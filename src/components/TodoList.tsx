@@ -14,6 +14,7 @@ export function TodoList() {
       <List style={{ padding: '0' }}>
         {state.map((todo, i) => (
           <React.Fragment key={uuidv4()}>
+            {/* eslint-disable-next-line */}
             <Todo {...todo} key={todo.id} />
             {i < state.length - 1 && <Divider />}
           </React.Fragment>

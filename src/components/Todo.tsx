@@ -28,8 +28,6 @@ export const Todo = memo(
     const [isEditing, toggleEditing] = useToggle(false);
     const [isOpen, setIsOpen] = useState(false);
 
-    console.info(date); // TODO: use date
-
     return (
       <ListItem
         style={{
@@ -52,8 +50,8 @@ export const Todo = memo(
             </ListItemText>
             <ListItemSecondaryAction>
               <IconButton
-                color="primary"
-                aria-label="favorite"
+                color='primary'
+                aria-label='favorite'
                 onClick={() => dispatch({ type: 'FAVORITE', payload: { id } })}
               >
                 {isPriority ? <StarOutlinedIcon /> : <StarBorderOutlinedIcon />}
@@ -64,15 +62,15 @@ export const Todo = memo(
                 onClick={() => dispatch({ type: 'TOGGLE', payload: { id } })}
               />
               <IconButton
-                color="primary"
-                aria-label="Edit"
+                color='primary'
+                aria-label='Edit'
                 onClick={toggleEditing}
               >
                 <Edit />
               </IconButton>
               <IconButton
-                color="error"
-                aria-label="Delete"
+                color='error'
+                aria-label='Delete'
                 onClick={() => {
                   setIsOpen(true);
                 }}
@@ -80,7 +78,7 @@ export const Todo = memo(
                 <Delete />
               </IconButton>
               <ConfirmDialog
-                title="Are you sure you want to delete this item?"
+                title='Are you sure you want to delete this item?'
                 isOpen={isOpen}
                 setOpen={setIsOpen}
                 onConfirm={() => {

@@ -48,6 +48,7 @@ rules:
     'no-unused-vars': 'off',
     'no-undef': 'off',
     'no-shadow': 'off',
+    'jsx-quotes': [2, 'prefer-single'],
   }
 settings:
   {
